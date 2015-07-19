@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+//框架联动刷新
+function JumpFrame(url1,url2){
+	if(url1){window.parent.menu.location.href=url1;}
+	if(url2){window.parent.main.location.href=url2;}
+}
+</script>
+</head>
+<body>
+<div class="hd">
+    <div class="top">
+		<span>
+			<a href="?c=a_sys&a=ecache" target="main">更新系统缓存</a> | <a href="{:U('admin/index')}" target="_parent">前台首页</a> | <a href="__APP__/help/" target="_blank">帮助</a> | <a href="http://bbs.wdoyo.com/f-2-1.html" target="_blank">问题反馈</a> | <a href="http://wdoyo.cn" target="_blank">域名主机</a>		</span>
+		当前登录：{$Think.session.loginUserName}&nbsp;&nbsp;<a href="?c=a_adminuser&a=edituser" target="main">[修改资料]</a>&nbsp;&nbsp;
+		<a href="__URL__/logout" target="_parent">[退出登录]</a>	</div>
+    <div class="mu">
+      <div class="logo logadmin"></div>
+      <div class="menu">
+      	<a href="{:U('Public/menu')}" onclick="JumpFrame('{:U('Public/menu')}','{:U('Article/index')}');return false">内容管理</a>
+      	<a href="{:U('Public/menu')}" onclick="JumpFrame('{:U('Public/menu')}','{:U('Class/index')}');return false">栏目管理</a>
+		<a href="{:U('Public/menu')}" onclick="JumpFrame('{:U('Public/menu')}','{:U('Channel/index')}');return false">频道管理</a>
+		<a href="{:U('Public/menu')}" onclick="JumpFrame('{:U('Public/menu')}','{:U('Other/index')}');return false">其他管理</a>
+		<a href="{:U('Public/menu')}" onclick="JumpFrame('{:U('Public/menu')}','{:U('Sysconf/index')}');return false">系统设置</a>
+      </div>
+    </div>
+</div>
+</body>
+</html>

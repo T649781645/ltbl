@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台登录</title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="background-color:#F4F7F9;">
+<div class="login"><p class="pl"></p>
+<div class="l"></div>
+  <div class="c">
+	<form action="{:U('Public/checkLogin')}" method="post">
+    <div class="to"><span class="tol"><a ></a></span><span class="tor"></span></div>
+    <div class="in">
+    <dl><dt>用户名</dt><dd><input name="account" type="text" style="width:150px;" /></dd><dd class="e"></dd></dl>
+    <dl><dt>密　码</dt><dd><input name="password" type="password" style="width:150px;" /></dd><dd class="e"></dd></dl>
+    <dl><dt>验证码</dt><dd><input name="verify" type="text" style="width:80px;" /></dd><dd style="padding-top:5px;"><img src="__URL__/verify/"  onClick="this.src=this.src+'?'+Math.random()" BORDER="0" ALT="点击刷新验证码" style="cursor:pointer" align="absmiddle" /></dd></dl>
+    </div>
+    <div class="su"><span><input class="go" type="submit" value="" /></span><a href="{:U('_APP_/Public/get_password')}">忘记密码</a></div>
+	</form>
+  </div>
+<div class="r"></div>
+<p class="pr"></p></div>
+</body>
+</html>

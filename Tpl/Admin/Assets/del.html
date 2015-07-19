@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资产管理 》出库</title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/Js/jQuery_v1.4.2.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Js/admin.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="maintop">当前位置：资产管理 》出库</div>
+<div class="main">
+	<div class="oper"><a href="{:U('Assets/index')}">资产详情</a><a href="{:U('Assets/add')}">入 库</a><a hrgood ideref="{:U('Assets/del')}">出 库</a></div>
+	<form method="post" id="form1" >
+	<table cellpadding=3 cellspacing=3 >
+	<tr>
+		<td class="tRight" >零部件：</td>
+		<td class="tLeft" >
+		<select class="small bLeft"  name="name">
+		<volist name="list" id="vo">
+			<option value="{$vo.name}">{$vo.title}</option>
+		</volist>
+		</select>		</td>
+	</tr>
+	<tr>
+	  <td class="tRight tTop">型&nbsp;&nbsp;号：</td>
+	  <td class="tLeft"><input name="model" class="medium bLeftRequire" type="text" /></td>
+	  </tr>
+	<tr>
+		<td class="tRight tTop">出库数量：</td>
+		<td class="tLeft"><input name="number" class="medium bLeftRequire" type="text" />&nbsp;<span style="color:red">*</span></td>
+	</tr>
+	<tr>
+	  <td class="tRight tTop">交易日期：</td>
+	  <td class="tLeft"><input name="trading" type="text" class="medium bLeftRequire" id="trading" /></td>
+	  </tr>
+	<tr>
+	  <td class="tRight tTop">出库类型：</td>
+	  <td class="tLeft">
+	      <input type="radio" name="transaction" value="办公损耗" />办公损耗
+	      <input type="radio" name="transaction" value="新入职" />新入职
+	      <input type="radio" name="transaction" value="装机外寄" />装机外寄
+		  <input type="radio" name="transaction" value="送维修" />送维修
+		  <input type="radio" name="transaction" value="盘点结存" />盘点结存	  </td>
+	  </tr>
+	<tr>
+		<td class="tRight tTop">备 注：</td>
+		<td class="tLeft"><TEXTAREA class="large bLeft" name="remark"  ROWS="5" COLS="57"></TEXTAREA></td>
+	</tr>
+	<tr>
+	  <td class="tRight tTop">&nbsp;</td>
+	  <td class="tLeft"><input type="submit" name="Submit" value="提交出库" /></td>
+	  </tr>
+	</table>
+	</form>
+</div>
+</body>
+</html>

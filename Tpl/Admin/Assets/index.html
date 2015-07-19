@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资产管理</title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/Js/jQuery_v1.4.2.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Js/admin.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="maintop">当前位置：资产管理</div>
+<div class="main">
+<div class="oper"><a href="{:U('Assets/index')}">资产流水详情</a><a href="{:U('Assets/computer')}">电脑</a><a href="{:U('Assets/add')}">入库</a><a href="{:U('Assets/del')}">出库</a></div>
+    <table width="100%" class="tablist">
+      <tr class="trbg">
+        <td width="53">ID</td>
+        <td width="158">零部件名称</td>
+        <td width="159">交易日期</td>
+        <td width="145">出库/入库</td>
+        <td width="219">操作类型</td>
+        <td width="267">流水时间（记账时间）</td>
+        <td width="364">备注说明</td>
+        <td width="82">操作</td>
+      </tr>
+	  <volist name="list" id="vo">
+      <tr>
+        <td>{$vo.id}</td>
+        <td><a href="#">{$vo.title}</a></td>
+        <td>{$vo.trading|date='Y-m-d',###}</td>
+        <td>{$vo.type}</td>
+        <td>{$vo.transaction}</td>
+        <td>{$vo.time|date='Y-m-d H:i:s',###}</td>
+        <td>{$vo.remark}</td>
+        <td><eq name="vo.status" value="1"></eq>&nbsp;<a href="{:U('Assets/edit')}?id={$vo.id}">编辑</a>&nbsp;<a href="{:U('Assets/remove')}?id={$vo.id}" title="移除流水库存会发生相应变动">移除</a></td>
+      </tr>
+	  </volist>
+   </table>
+</div>
+</body>
+</html>

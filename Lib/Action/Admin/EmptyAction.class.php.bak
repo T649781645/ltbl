@@ -1,0 +1,9 @@
+<?php
+    class EmptyAction extends Action{
+        public function index(){
+			$MODEL = MODULE_NAME;
+		 	//$this->Error('模块[&nbsp;'.$MODEL.'&nbsp;]不存在','',3);
+			$last_url = $_SERVER["HTTP_REFERER"];
+			$this->show('模块[&nbsp;'.$MODEL.'&nbsp;]不存在&nbsp;<a href="'.$last_url.'" target="_top">返回上页</a>');
+        }
+}

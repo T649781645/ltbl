@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function  heightSet(thisFrame){
+      if($.browser.mozilla || $.browser.msie){
+          bodyHeight =window.frames["a_update"].document.body.scrollHeight;
+      }else{
+          bodyHeight =thisFrame.contentWindow.document.documentElement.scrollHeight;
+      }
+       document.getElementById("a_update").height=bodyHeight;  
+
+}
+</script>
+</head>
+
+<body>
+
+
+<div class="maintop">当前位置：管理首页</div>
+<div class="main">
+<table width="100%" class="tablist">
+  <tr class="trbg"><td colspan="2" class="tdleft" style="padding-left:10px;">欢迎admin回来管理本站。</td></tr>
+  <volist name="info" id="v">
+  <tr>
+    <td width="103">{$key}:</td>
+  <td width="884" class="tdleft">{$v}</td>
+  </tr>
+  </volist>
+  </table></br>
+<table width="100%" class="tablist">
+  <tr class="trbg"><td class="tdleft" style="padding-left:10px;">更新公告</td></tr>
+  <tr><td class="tdleft"><!--屏蔽官方信息<iframe src="?c=a_update&a=update_d" frameborder="0" scrolling="no" name="a_update" id="a_update" width="600" onload="heightSet(this)"></iframe>-->暂无更新</td></tr>
+</table>
+</div>
+
+
+</body>
+</html>

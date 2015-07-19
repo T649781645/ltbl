@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/Js/jQuery_v1.4.2.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Js/admin.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="maintop">当前位置：添加管理员</div>
+<div class="main">
+<div class="oper"><a href="{:U('User/index')}">管理员管理</a><a href="{:U('User/add')}">添加管理员</a></div>
+		<ul class="switchs"><li id="s1">基本信息</li><li id="s2" class="c">栏目权限</li></ul>
+    	<div class="info">
+    <form action="" method="post">
+    <div id="infos1">
+    <dl style="border:0;"><dt>用户名称：</dt><dd>    <input name="account" type="text" class="int" /></dd><dd class="t">最大长度20，支持中英文数字</dd>
+        </dl>
+<dl><dt>用户密码：</dt><dd><input name="password" type="text" class="int" /></dd></dl>
+    <dl><dt>权限组分组：</dt><dd><volist name="role" id="vo">{$vo.name}<input type="checkbox" name="role[]" value="{$vo.id}" />&nbsp;</volist></dd></dl>
+    <dl><dt>真实姓名：</dt><dd><input name="nickname" type="text" class="int" value="" /></dd><dd class="t">可留空</dd></dl>
+    <dl><dt>邮箱：</dt><dd><input name="email" type="text" class="int" value="" /></dd><dd class="t">可留空</dd></dl>
+    <dl><dt>电话：</dt><dd><input name="tel" type="text" class="int" value="" /></dd><dd class="t">可留空 </dd></dl>
+	<dl><dt>备注：</dt><dd><textarea name="remark" type="text" class="int"/></textarea></dd><dd class="t">可留空 </dd></dl>
+    </div>
+    <div id="infos2" class="none">
+    <dl><dt>栏目权限：<br /><input id="pclasstype" type="button" value="全选" class="btnmini" onclick="alls('pclasstype[]','pclasstype');" style="padding:0" /></dt>
+    <dd style="line-height:22px;" id="pclasstype">
+            <label><input type="checkbox" name="pclasstype[]" value="1" id="tid_1"  onclick="checkboxs('#tid_1','1,9,10','tid_');" />关于我们</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="9" id="tid_9"  onclick="checkboxs('#tid_9','9','tid_');" />公司介绍</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="10" id="tid_10"  onclick="checkboxs('#tid_10','10','tid_');" />公司荣誉</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="2" id="tid_2"  onclick="checkboxs('#tid_2','2,18,19,25,26,27,42,28','tid_');" />淘客商城</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="18" id="tid_18"  onclick="checkboxs('#tid_18','18','tid_');" />家电电器</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="19" id="tid_19"  onclick="checkboxs('#tid_19','19','tid_');" />虚拟商品</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="25" id="tid_25"  onclick="checkboxs('#tid_25','25','tid_');" />图书书籍</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="26" id="tid_26"  onclick="checkboxs('#tid_26','26','tid_');" />数码产品</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="27" id="tid_27"  onclick="checkboxs('#tid_27','27,42','tid_');" />服装服饰</label><br />
+        |----    <label><input type="checkbox" name="pclasstype[]" value="42" id="tid_42"  onclick="checkboxs('#tid_42','42','tid_');" />内衣</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="28" id="tid_28"  onclick="checkboxs('#tid_28','28','tid_');" />化妆护肤</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="6" id="tid_6"  onclick="checkboxs('#tid_6','6','tid_');" />网络营销</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="7" id="tid_7"  onclick="checkboxs('#tid_7','7','tid_');" />联系我们</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="8" id="tid_8"  onclick="checkboxs('#tid_8','8','tid_');" />公司动态</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="11" id="tid_11"  onclick="checkboxs('#tid_11','11','tid_');" />在线留言</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="22" id="tid_22"  onclick="checkboxs('#tid_22','22,23','tid_');" />人才招聘</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="23" id="tid_23"  onclick="checkboxs('#tid_23','23','tid_');" />在线应聘</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="24" id="tid_24"  onclick="checkboxs('#tid_24','24,31,38,39,40','tid_');" />资源下载</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="31" id="tid_31"  onclick="checkboxs('#tid_31','31','tid_');" />PHP源码</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="38" id="tid_38"  onclick="checkboxs('#tid_38','38','tid_');" />模板下载</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="39" id="tid_39"  onclick="checkboxs('#tid_39','39','tid_');" />ASP源码</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="40" id="tid_40"  onclick="checkboxs('#tid_40','40','tid_');" />智能建站</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="33" id="tid_33"  onclick="checkboxs('#tid_33','33,32,34,35,36,37','tid_');" />网络编程</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="32" id="tid_32"  onclick="checkboxs('#tid_32','32','tid_');" />HTML基础</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="34" id="tid_34"  onclick="checkboxs('#tid_34','34','tid_');" />网页特效</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="35" id="tid_35"  onclick="checkboxs('#tid_35','35','tid_');" />PHP源码</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="36" id="tid_36"  onclick="checkboxs('#tid_36','36','tid_');" />PHP源码</label><br />
+        |--    <label><input type="checkbox" name="pclasstype[]" value="37" id="tid_37"  onclick="checkboxs('#tid_37','37','tid_');" />ASP源码</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="41" id="tid_41"  onclick="checkboxs('#tid_41','41','tid_');" />单页栏目</label><br />
+            <label><input type="checkbox" name="pclasstype[]" value="43" id="tid_43"  onclick="checkboxs('#tid_43','43','tid_');" />论坛</label><br />
+     </dd>
+	</dl>
+    </div>
+    <dl><dt>&nbsp;</dt><dd><input type="submit" value="提 交" class="btnbig" /></dd></dl>
+    </form>
+    </div>
+    
+
+</div>
+</body>
+</html>

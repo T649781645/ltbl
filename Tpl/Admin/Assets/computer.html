@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资产管理</title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/Js/jQuery_v1.4.2.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Js/admin.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="maintop">当前位置：电脑详情</div>
+<div class="main">
+<div class="oper"><a href="{:U('Assets/index')}">资产流水详情</a><a href="{:U('Assets/computer')}">使用中电脑</a><a href="{:U('Assets/add')}">入库</a><a href="{:U('Assets/del')}">出库</a></div>
+    <table width="100%" class="tablist">
+      <tr class="trbg">
+        <td>使用者</td>
+        <td>组织</td>
+        <td>部门</td>
+        <td>职位</td>
+        <td>主机</td>
+        <td>显示器</td>
+        <td>CPU型号</td>
+        <td>内存</td>
+        <td>硬盘</td>
+        <td>显卡</td>
+        <td>键盘</td>
+        <td>鼠标</td>
+        <td>IP地址</td>
+        <td>MAC地址</td>
+        <td>网络状态</td>
+        <td>备注说明</td>
+      </tr>
+	  <volist name="list" id="vo">
+      <tr>
+        <td><a href="#">{$vo.user}</a></td>
+        <td>{$vo.organization}&nbsp;</td>
+        <td>{$vo.department}</td>
+        <td>{$vo.office}</td>
+        <td>{$vo.model}</td>
+        <td>{$vo.monitor}</td>
+        <td>{$vo.cpu}</td>
+        <td>{$vo.ram}</td>
+        <td>{$vo.disk}</td>
+        <td>{$vo.graphics}</td>
+        <td>{$vo.keyboard}</td>
+        <td>{$vo.mouse}</td>
+        <td>{$vo.ip}</td>
+        <td>{$vo.mac}</td>
+        <td>{$vo.net}</td>
+        <td>{$vo.remark}</td>
+        </tr>
+		</volist>
+      <tr class="trbg" style="height:25px;">
+        <td colspan="16">{$page}</td>
+      </tr>
+   </table>
+</div>
+</body>
+</html>

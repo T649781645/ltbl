@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>左侧栏目</title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="leftbody" style="overflow-x:hidden;">
+<div class="lefttop">管理栏目</div>
+<div class="leftmenu">
+<volist id="item" name="menu" >
+<p><a href="__GROUP__/{$item['name']}/index/" id="{$key}" target="main">{$item['title']}</a></p>	
+</volist>
+</div>
+</body>
+</html>

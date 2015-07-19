@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/Js/jQuery_v1.4.2.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Js/admin.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="maintop">当前位置：修改管理员分组</div>
+<div class="main">
+<div class="oper"><a href="?c=a_adminuser">管理员管理</a><a href="?c=a_adminuser&a=add">添加管理员</a><a href="?c=a_adminuser&a=glist">管理员分组</a><a href="?c=a_adminuser&a=gadd">添加分组</a></div>
+	<div class="info">
+    <form action="" method="post">
+    <input name="id" type="hidden" value="{$role.id}" />
+    <dl style="border:0;"><dt>分组名称：</dt><dd><input name="name" type="text" class="int" value="{$role.name}" /></dd><dd class="t">最大长度20，支持中英文数字</dd></dl>
+	<dl><dt>启用状态：</dt><dd><select name="status"><eq name="role.status" value="1"><option value="1">启用</option><option value="0">禁用</option><else/><option value="0">禁用</option><option value="1">启用</option></eq></select></dd></dl>
+    <dl><dt>仅管理本人内容：</dt><dd><label><input name="oneself" type="radio" value="1" />是</label> <label><input type="radio" name="oneself" value="0" checked="checked" />否</label> </dd><dd class="t">勾选是，则无权管理他人发布内容</dd></dl>
+    <dl><dt>发布默认审核：</dt><dd><label><input name="audit" type="radio" value="1" checked="checked" />已审</label> <label><input type="radio" name="audit" value="0" />未审</label> </dd><dd class="t">本组会员发布内容默认是否审核</dd></dl>
+
+    <dl><dt>操作权限：<br /><input id="paction" type="button" value="全选" class="btnmini" onclick="alls('paction[]','paction');" style="padding:0" />
+    </dt><dd style="line-height:22px;" id="paction">
+            <label><input type="checkbox" name="paction[]" value="" id="id_36"   onclick="checkboxs('#id_36','36,17,22,34,40,43,75,76,117','id_');"/>
+        <strong>系统</strong></label>
+        <label><input type="checkbox" name="paction[]" value="a_sys" id="id_22"  onclick="checkboxp('#id_22','#id_36');"/>系统设置</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_adminuser" id="id_17"  onclick="checkboxp('#id_17','#id_36');"/>管理员管理</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_labelcus" id="id_40"  onclick="checkboxp('#id_40','#id_36');"/>自定义模板标签</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_template" id="id_117"  onclick="checkboxp('#id_117','#id_36');"/>模板管理</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_dbbak" id="id_34"  onclick="checkboxp('#id_34','#id_36');"/>数据备份</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_files" id="id_43"  onclick="checkboxp('#id_43','#id_36');"/>清理附件</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_update" id="id_75"  onclick="checkboxp('#id_75','#id_36');"/>在线升级</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_html" id="id_76"  onclick="checkboxp('#id_76','#id_36');"/>静态生成</label>&nbsp;
+		<br />
+            <label><input type="checkbox" name="paction[]" value="" id="id_42"   onclick="checkboxs('#id_42','42,41,71,72,73,74,84,85,86','id_');"/>
+        <strong>其他管理</strong></label>
+        <label><input type="checkbox" name="paction[]" value="a_funs" id="id_41"  onclick="checkboxp('#id_41','#id_42');"/>插件设置</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_comment" id="id_71"  onclick="checkboxp('#id_71','#id_42');"/>评论管理</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_links" id="id_72"  onclick="checkboxp('#id_72','#id_42');"/>友情链接管理</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_member" id="id_73"  onclick="checkboxp('#id_73','#id_42');"/>会员管理</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_special" id="id_74"  onclick="checkboxp('#id_74','#id_42');"/>专题管理</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_ads" id="id_84"  onclick="checkboxp('#id_84','#id_42');"/>广告管理</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_pay" id="id_85"  onclick="checkboxp('#id_85','#id_42');"/>支付系统</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_goods" id="id_86"  onclick="checkboxp('#id_86','#id_42');"/>购物系统</label>&nbsp;
+		<br />
+            <label><input type="checkbox" name="paction[]" value="" id="id_37"   onclick="checkboxs('#id_37','37,3,13,29','id_');"/>
+        <strong>频道管理</strong></label>
+        <label><input type="checkbox" name="paction[]" value="a_molds" id="id_13"  onclick="checkboxp('#id_13','#id_37');"/>频道设置</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_fields" id="id_3"  onclick="checkboxp('#id_3','#id_37');"/>自定义字段管理</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_traits" id="id_29"  onclick="checkboxp('#id_29','#id_37');"/>推荐属性管理</label>&nbsp;
+		<br />
+            <label><input type="checkbox" name="paction[]" value="a_classtypes" id="id_2" checked="checked"   onclick="checkboxs('#id_2','2,9,10,11,12','id_');"/>
+        <strong>栏目管理</strong></label>
+        <label><input type="checkbox" name="paction[]" value="a_classtypes_add" id="id_10" checked="checked"  onclick="checkboxp('#id_10','#id_2');"/>栏目添加</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_classtypes_edit" id="id_11" checked="checked"  onclick="checkboxp('#id_11','#id_2');"/>栏目编辑</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_classtypes_del" id="id_12" checked="checked"  onclick="checkboxp('#id_12','#id_2');"/>栏目删除</label>&nbsp;
+		<br />
+            <label><input type="checkbox" name="paction[]" value="a_article" id="id_1" checked="checked"   onclick="checkboxs('#id_1','1,4,5,6,7,8','id_');"/>
+        <strong>文章管理</strong></label>
+        <label><input type="checkbox" name="paction[]" value="a_article_add" id="id_5" checked="checked"  onclick="checkboxp('#id_5','#id_1');"/>添加</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_article_edit" id="id_6" checked="checked"  onclick="checkboxp('#id_6','#id_1');"/>编辑</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_article_del" id="id_7" checked="checked"  onclick="checkboxp('#id_7','#id_1');"/>删除</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_article_audit" id="id_8" checked="checked"  onclick="checkboxp('#id_8','#id_1');"/>审核</label>&nbsp;
+		<br />
+            <label><input type="checkbox" name="paction[]" value="a_product" id="id_77" checked="checked"   onclick="checkboxs('#id_77','77,78,79,80,81,82,136','id_');"/>
+        <strong>商品管理</strong></label>
+        <label><input type="checkbox" name="paction[]" value="a_product_add" id="id_79" checked="checked"  onclick="checkboxp('#id_79','#id_77');"/>添加</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_product_edit" id="id_80" checked="checked"  onclick="checkboxp('#id_80','#id_77');"/>编辑</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_product_del" id="id_81" checked="checked"  onclick="checkboxp('#id_81','#id_77');"/>删除</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_product_audit" id="id_82" checked="checked"  onclick="checkboxp('#id_82','#id_77');"/>审核</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_product_virtual" id="id_136" checked="checked"  onclick="checkboxp('#id_136','#id_77');"/>虚拟货物</label>&nbsp;
+		<br />
+            <label><input type="checkbox" name="paction[]" value="a_message" id="id_66"   onclick="checkboxs('#id_66','66,67,68,69','id_');"/>
+        <strong>互动管理</strong></label>
+        <label><input type="checkbox" name="paction[]" value="a_message_edit" id="id_67"  onclick="checkboxp('#id_67','#id_66');"/>编辑</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_message_del" id="id_68"  onclick="checkboxp('#id_68','#id_66');"/>删除</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="a_message_audit" id="id_69"  onclick="checkboxp('#id_69','#id_66');"/>审核</label>&nbsp;
+		<br />
+            <label><input type="checkbox" name="paction[]" value="channel_person" id="id_118"   onclick="checkboxs('#id_118','118,119,120,121,122,123','id_');"/>
+        <strong>招聘管理</strong></label>
+        <label><input type="checkbox" name="paction[]" value="channel_person_add" id="id_119"  onclick="checkboxp('#id_119','#id_118');"/>添加</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="channel_person_edit" id="id_120"  onclick="checkboxp('#id_120','#id_118');"/>编辑</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="channel_person_del" id="id_121"  onclick="checkboxp('#id_121','#id_118');"/>删除</label>&nbsp;
+		        <label><input type="checkbox" name="paction[]" value="channel_person_audit" id="id_122"  onclick="checkboxp('#id_122','#id_118');"/>审核</label>&nbsp;
+		<br />
+            <label><input type="checkbox" name="paction[]" value="channel_down" id="id_137" checked="checked"   onclick="checkboxs('#id_137','137','id_');"/>
+        <strong>下载管理</strong></label>
+<br />
+            <label><input type="checkbox" name="paction[]" value="channel_page" id="id_149" checked="checked"   onclick="checkboxs('#id_149','149','id_');"/>
+        <strong>单页管理</strong></label>
+<br />
+        </dd></dl>
+    <div style="display:none">
+        	<input type="checkbox" name="paction[]" value="a_article_index" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="a_classtypes_index" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="a_fields_info" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="a_adminuser_edituser" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="uploads" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="a_label" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="a_sys_ecache" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="a_product_index" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="a_goods_attribute_ajax" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="a_channel" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="channel_person_index" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="channel_down_index" checked="checked" />
+	    	<input type="checkbox" name="paction[]" value="channel_page_index" checked="checked" />
+	    </div>
+    <dl><dt>&nbsp;</dt><dd><input type="submit" value="提 交" class="btnbig" /></dd></dl>
+    </form>
+    </div>
+
+</div>
+</body>
+</html>

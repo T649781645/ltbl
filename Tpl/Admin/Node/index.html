@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="__PUBLIC__/Css/admin.css" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/Js/jQuery_v1.4.2.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Js/admin.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div class="maintop">当前位置：节点管理</div>
+<div class="main">
+<div class="oper"><a href="{:U('Node/add')}">添加节点</a></div>
+  <form action="__URL__/del" method="post" name="form1">
+    <table width="100%" class="tablist">
+      <tr class="trbg">
+        <td width="90">选择</td>
+        <td width="174">ID标识</td>
+        <td width="306">节点名称</td>
+        <td width="407">中文名称</td>
+        <td width="407">排序</td>
+        <td width="407">类型</td>
+        <td width="268">状态</td>
+        <td width="247">操作</td>
+      </tr>
+     <volist name="list" id="vo">
+	 <tr>
+        <td align="center"><input type="checkbox" name="id[]" value="{$vo.id}" /></td>
+        <td>{$vo.id}</td>
+        <td class="tdleft"><a href="{:U('Node/edit')}?id={$vo.id}">{$vo.name}</a></td>
+        <td><a href="{:U('Node/edit')}?id={$vo.id}">{$vo.title}</a></td>
+        <td>{$vo.sort}</td>
+        <td><switch name="vo.level"><case value="1">应用</case><case value="2">模块</case><case value="3">方法</case></switch></td>
+		<td><eq name="vo.status" value="1"><a href="{:U('Node/status')}?id={$vo.id}&status={$vo.status}" title="点击禁用">启用</a><else/><a href="{:U('Node/status')}?id={$vo.id}&status={$vo.status}" title="点击启用">禁用</a></eq></td>
+		<td><a href="{:U('Node/edit')}?id={$vo.id}">编辑</a>&nbsp;&nbsp;<a href="{:U('Node/del')}?id={$vo.id}">删除</a></td>
+      </tr>
+	  </volist>
+	<tr>
+		<td colspan="8" align="center"><input type="submit" name="Submit" value="批量删除" /></td>
+	</tr>
+	</table>
+  </form>	
+
+</div>
+</body>
+</html>
